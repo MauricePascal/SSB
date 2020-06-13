@@ -1,0 +1,16 @@
+{
+  "name": "SSB",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js debug",
+    "start": "node main.js"
+  },
+  "author": "PandaMitSkill",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.2.1",
+    "fs": "0.0.1-security",
+    "moment": "^2.24.0"
+  }
+}

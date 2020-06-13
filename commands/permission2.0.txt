@@ -1,0 +1,81 @@
+//Zeit: 26m
+
+const Discord = require("discord.js")
+
+module.exports.run = async (client, msg, args) => {
+
+    let user = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]))
+
+    if(!msg.author.id === "622784776234991626") {
+        return msg.channel.send("ERROR - You can`t use this plugin")
+    } else if(!args[0]) {
+        return msg.channel.send("ERROR - IDK what i must do")
+    } else if(args[0] === "add") {
+        if(!args[1]) {
+            return msg.channel.send("ERROR - Who must i give the permission?")
+        } else if(!user) {
+            return msg.channel.send("ERROR - Who must i give the permission?")
+        } else {
+            if(!args[2]) {
+                return msg.channel.send("ERROR - What permission group must i give the user?")
+            } else if(args[2] === "group:admin") {
+                user.addRole("630179032465539103")
+                .then(console.log)
+                .catch(console.error);
+                return msg.channel.send(`Pex permission for <@${userr.id}> was been changed by <@${msg.author.id}>`)
+            } else if(args[2] === "group:mod") {
+                user.addRole("630179088862281739")
+                .then(console.log)
+                .catch(console.error);
+                return msg.channel.send(`Pex permission for <@${userr.id}> was been changed by <@${msg.author.id}>`)
+            } else {
+                return msg.channel.send("ERROR - I don`t find this group of permission")
+            }
+        }
+    } else if(args[0] === "remove") {
+        if(!args[1]) {
+            return msg.channel.send("ERROR - Who must i remove the permission?")
+        } else if(!user) {
+            return msg.channel.send("ERROR - Who must i remove the permission?")
+        } else {
+            if(!args[2]) {
+                return msg.channel.send("ERROR - What permission group must i remove from this user?")
+            } else if(args[2] === "group:admin") {
+                user.removeRole("630179032465539103")
+                .then(console.log)
+                .catch(console.error);
+                return msg.channel.send(`Pex permission for <@${userr.id}> was been changed by <@${msg.author.id}>`)
+            } else if(args[2] === "group:mod") {
+                user.removeRole("630179088862281739")
+                .then(console.log)
+                .catch(console.error);
+                return msg.channel.send(`Pex permission for <@${userr.id}> was been changed by <@${msg.author.id}>`)
+            } else {
+                return msg.channel.send("ERROR - I don`t find this group of permission")
+            }
+        }
+    } else if(args[0] === "set") {
+        if(!args[1]) {
+            return msg.channel.send("ERROR - Who`s group of permission must i set to ...")
+        } else if(!user) {
+            return msg.channel.send("ERROR - Who`s group of permission must i set to ...")
+        } else if(!args[2]) {
+            msg.channel.send("ERROR - What permission must i set to this user?")
+        } else if(args[2] === "group:default") {
+            user.removeRole("630179032465539103")
+            .then(console.log)
+            .catch(console.error);
+
+            user.removeRole("630179088862281739")
+            .then(console.log)
+            .catch(console.error);
+
+            return msg.channel.send(`Pex permission for <@${userr.id}> was been changed by <@${msg.author.id}>`)
+        }
+    }
+
+}
+
+module.exports.help = {
+    name: "pex"
+}
